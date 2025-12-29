@@ -1,7 +1,7 @@
 node ("Worker_Linux") {
     stage ('Git fetch') {
         dir ('playbook') {
-             git "git@github.com:deekshithabangera/Hello_World_Project.git"
+              git poll: true, branch: "main", credentialsId: 'Worker_Linux', url: "git@github.com:deekshithabangera/Hello_World_Project.git"
         } //end of dir
     } //end of stage
 
