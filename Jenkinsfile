@@ -1,5 +1,4 @@
 node ("build") {
-    cleanws()
     stage ('Git fetch') {
         dir ('playbook') {
              git poll: true, branch: "main", credentialsId: 'jenkin_cred', url: "git@github.com:deekshithabangera/Hello_World_Project.git"
