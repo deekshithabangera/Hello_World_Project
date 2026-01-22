@@ -31,7 +31,7 @@ node ("Worker_Linux") {
 
     stage('Terraform Destroy') {
         dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform destroy'
+            sh 'terraform destroy -auto-approve'
         }
     }
 } //end of node
