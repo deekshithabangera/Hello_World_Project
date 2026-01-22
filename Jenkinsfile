@@ -10,4 +10,22 @@ node ("Worker_Linux") {
             sh 'terraform init'
         }
     }
+
+    stage('Terraform Validate') {
+        dir('playbook/terraform_files/s3_bucket') {
+            sh 'terraform validate'
+        }
+    }
+
+    stage('Terraform Plan') {
+        dir('playbook/terraform_files/s3_bucket') {
+            sh 'terraform plan'
+        }
+    }
+
+    stage('Terraform Apply') {
+        dir('playbook/terraform_files/s3_bucket') {
+            sh 'terraform apply'
+        }
+    }
 } //end of node
