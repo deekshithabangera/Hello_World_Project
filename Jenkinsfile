@@ -6,7 +6,7 @@ node ("Worker_Linux") {
     } //end of stage
 
     stage('Terraform Init') {
-        dir('playbook') {
+        dir('playbook/terraform_files/s3_bucket') {
             sh 'terraform init'
         }
     }
