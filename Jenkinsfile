@@ -25,7 +25,7 @@ node ("Worker_Linux") {
 
     stage('Terraform Apply') {
         dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform apply -y'
+            sh 'terraform apply -auto-approve'
         }
     }
 } //end of node
