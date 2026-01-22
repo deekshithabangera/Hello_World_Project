@@ -17,15 +17,21 @@ node ("Worker_Linux") {
         }
     }
 
-    stage('Terraform Plan') {
-        dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform plan'
-        }
-    }
+    // stage('Terraform Plan') {
+    //     dir('playbook/terraform_files/s3_bucket') {
+    //         sh 'terraform plan'
+    //     }
+    // }
 
-    stage('Terraform Apply') {
+    // stage('Terraform Apply') {
+    //     dir('playbook/terraform_files/s3_bucket') {
+    //         sh 'terraform apply -auto-approve'
+    //     }
+    // }
+
+    stage('Terraform Destroy') {
         dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform apply -auto-approve'
+            sh 'terraform Destroy'
         }
     }
 } //end of node
