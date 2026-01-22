@@ -5,7 +5,9 @@ node ("Worker_Linux") {
         } //end of dir
     } //end of stage
 
-    stage ('build') {
-     println "entered the build stage"
+    stage ('Create S3 bucket') {
+     println "Creating S3 bucket"
+    dir('terraform_files/s3_bucket')
+     sh 'terraform init'
     } // End of build stage
 } //end of node
