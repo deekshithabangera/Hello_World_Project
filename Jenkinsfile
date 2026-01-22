@@ -25,7 +25,7 @@ node ("Worker_Linux") {
 
     stage('Terraform Apply') {
         dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform apply'
+            sh 'terraform apply -y'
         }
     }
 } //end of node
