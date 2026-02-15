@@ -6,32 +6,32 @@ node ("Worker_Linux") {
     } //end of stage
 
     stage('Terraform Init') {
-        dir('playbook/terraform_files/s3_bucket') {
+        dir('playbook/terraform_files/VPC') {
             sh 'terraform init'
         }
     }
 
     stage('Terraform Validate') {
-        dir('playbook/terraform_files/s3_bucket') {
+        dir('playbook/terraform_files/VPC') {
             sh 'terraform validate'
         }
     }
 
-    // stage('Terraform Plan') {
-    //     dir('playbook/terraform_files/s3_bucket') {
-    //         sh 'terraform plan'
-    //     }
-    // }
-
-    // stage('Terraform Apply') {
-    //     dir('playbook/terraform_files/s3_bucket') {
-    //         sh 'terraform apply -auto-approve'
-    //     }
-    // }
-
-    stage('Terraform Destroy') {
-        dir('playbook/terraform_files/s3_bucket') {
-            sh 'terraform destroy -auto-approve'
+    stage('Terraform Plan') {
+        dir('playbook/terraform_files/VPC') {
+            sh 'terraform plan'
         }
     }
+
+    stage('Terraform Apply') {
+        dir('playbook/terraform_files/VPC') {
+            sh 'terraform apply -auto-approve'
+        }
+    }
+
+    // stage('Terraform Destroy') {
+    //     dir('playbook/terraform_files/s3_bucket') {
+    //         sh 'terraform destroy -auto-approve'
+    //     }
+    // }
 } //end of node
